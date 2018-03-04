@@ -22,6 +22,7 @@ Wydarzenia dodawane są pod koniec dnia, żeby nie przeszkadzać, gdy w kalendar
 - Obsługa CLI?
 - Wyeliminować wszystkie "typowe" święta, takie jak "Boże Narodzenie", które nijak jest nietypowe i będzie się
 duplikowało z ew. "wbudowanymi" świętami w określonych kalendarzach
+- Ogarnąć @todo
 
 ## FAQ
 
@@ -32,7 +33,6 @@ To nie jest to samo - zdaje się, że brakuje tam świąt, dodatkowo do wpisów 
 - Jak to odpalić?
 
 Zainstalować relatywnie nowe Node.js, przejść do folderu z kodem źródłowym i odpalić `npm start`.
-
 
 ## Licencja
 
