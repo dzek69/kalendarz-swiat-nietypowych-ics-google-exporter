@@ -4,7 +4,17 @@
   "main": "index.js",
   "repository": "git@github.com:dzek69/kalendarz-swiat-nietypowych-ics-google-exporter.git",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon --watch src src/index"
+  },
   "devDependencies": {
     "nodemon": "^1.17.1"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "fs-extra": "^5.0.0",
+    "html-entities": "^1.2.1",
+    "ics": "^2.4.1",
+    "node-fetch": "^2.0.0"
   }
 }
