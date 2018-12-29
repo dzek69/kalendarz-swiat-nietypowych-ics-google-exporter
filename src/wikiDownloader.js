@@ -9,6 +9,7 @@ const CACHE_DIR = ".cache";
 const CACHE_FILE = join(CACHE_DIR, FILE);
 
 const download = async () => {
+    console.info(URL);
     await fs.ensureDir(CACHE_DIR);
     const cached = await fs.readFile(CACHE_FILE).catch(e => null);
     if (cached) {

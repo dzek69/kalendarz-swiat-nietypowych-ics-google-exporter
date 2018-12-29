@@ -17,8 +17,7 @@ Wydarzenia dodawane są pod koniec dnia, żeby nie przeszkadzać, gdy w kalendar
 ## Do zrobienia
 
 - Naprawić znane problemy
-- Opcja wyeksportowania wszystkich świąt w jednym wpisie?
-- Parametryzacja roku?
+- Opcja wyeksportowania wszystkich świąt z danego dnia w jednym wpisie?
 - Obsługa CLI?
 - Wyeliminować wszystkie "typowe" święta, takie jak "Boże Narodzenie", które nijak jest nietypowe i będzie się
 duplikowało z ew. "wbudowanymi" świętami w określonych kalendarzach
@@ -32,7 +31,11 @@ To nie jest to samo - zdaje się, że brakuje tam świąt, dodatkowo do wpisów 
 
 - Jak to odpalić?
 
-Zainstalować relatywnie nowe Node.js, przejść do folderu z kodem źródłowym i odpalić `npm start`.
+1. Zainstalować relatywnie nowe Node.js (testowane na 11.2)
+2. Przejść do folderu z kodem źródłowym
+3. `yarn`
+4. `yarn createCalendar` dla bieżącego roku, `yarn createCalendar 2019` dla roku 2019, itd.
+4. `yarn start` - żeby developować zmiany dla bieżącego roku, `yarn start 2019` żeby developować dla roku 2019, itd.
 
 ## Licencja
 

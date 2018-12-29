@@ -5,7 +5,8 @@
   "repository": "git@github.com:dzek69/kalendarz-swiat-nietypowych-ics-google-exporter.git",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon --watch src src/index"
+    "start": "nodemon --watch src src/index",
+    "createCalendar": "node src"
   },
   "devDependencies": {
     "nodemon": "^1.17.1"

@@ -3,8 +3,6 @@ const Entities = require('html-entities').AllHtmlEntities;
 
 const entities = new Entities();
 
-const YEAR = (new Date()).getFullYear();
-
 const notUnusual = ["Sylwester", "Boże Narodzenie", "Święto Pracy"];
 const knownIgnored = ["Spis treści", "Przypisy"];
 const months = [
@@ -43,7 +41,8 @@ const week = "tydzień";
 const weekend = "weekend";
 
 const manualDates = [
-    "data ustalana", "marzec lub kwiecień", "równonoc wiosenna", // @todo handle last one?
+    "data ustalana", "marzec lub kwiecień", "równonoc wiosenna", // @todo handle równonoc
+    "tydzień poprzedzający wielki tydzień",
 ];
 
 const onlyUnusual = (holiday) => {
@@ -52,7 +51,7 @@ const onlyUnusual = (holiday) => {
 
 const trim = s => s.trim();
 
-const parseMonth = function($, $list, title) {
+const parseMonth = function($, $list, title, YEAR) {
     const monthName = $list.eq(0).find("a").attr("title").split(" ")[1].trim();
     const monthNumber = months.findIndex(m => m[1] === monthName);
     return Array.from($list.map(function() {
@@ -194,7 +193,7 @@ const findMonthNumber = word => {
     }
 };
 
-const findDate = (text) => {
+const findDate = (text, YEAR) => {
     const words = text.split(" ");
     const firstWord = words[0];
     const secondWord = words[1];
@@ -276,7 +275,7 @@ const findSplitter = text => {
     return "-";
 };
 
-const parseMovable = function($, $list, title) {
+const parseMovable = function($, $list, title, YEAR) {
     return Array.from($list.map(function() {
         const $item = $(this);
         const text = entities.decode($item.text());
@@ -296,7 +295,7 @@ const parseMovable = function($, $list, title) {
         const descriptiveDate = text.substr(0, splitPoint).trim();
         const holidays = text.substr(splitPoint + 1).trim().split(",").map(trim).filter(onlyUnusual);
 
-        const fullDate = findDate(descriptiveDate);
+        const fullDate = findDate(descriptiveDate, YEAR);
 
         if (!fullDate) {
             throw new Error("Cannot parse: " + descriptiveDate);
@@ -311,29 +310,34 @@ const parseMovable = function($, $list, title) {
     })).filter(Boolean);
 };
 
-const parseSection = function($) {
+const parseSection = function($, YEAR) {
     const $section = $(this);
-    const title = $section.text().trim();
+    const title = $section.text().replace("edytuj", "").trim();
     if (knownIgnored.includes(title)) {
         return;
     }
     const $list = $section.nextAll("dl").eq(0).find("dd");
     if (title === months[0]) {
-        return parseMovable($, $list, title);
+        return parseMovable($, $list, title, YEAR);
     }
-    return parseMonth($, $list, title);
+    return parseMonth($, $list, title, YEAR);
 };
 
-const parse = (html) => {
+const parse = (html, YEAR) => {
     const $ = cheerio.load(html);
     const $content = $("#mw-content-text");
     const $headers = $content.find("h2");
 
     const list = [];
 
-    $headers.each(function(... args) {
-        const parsedItems = parseSection.call(this, $, ... args);
+    console.info("Found", $headers.length, "headers");
+
+    $headers.each(function() {
+        console.info("Parsing new header");
+        const parsedItems = parseSection.call(this, $, YEAR);
+        console.info("Found", (parsedItems || 0) && parsedItems.length, "lists");
         parsedItems && parsedItems.forEach((item) => {
+            console.info("Found", item.list.join("; "));
             item.list.forEach(dayName => {
                 list.push({
                     month: item.month,
@@ -350,7 +354,7 @@ const parse = (html) => {
         return date.getFullYear() === item.year && date.getDate() === item.day && date.getMonth() + 1 === item.month;
     });
 
-    console.info("Found", validList.length, "holidays");
+    console.info("Found", validList.length, "holidays within", list.length, "entries");
 
     return validList;
 };
