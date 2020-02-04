@@ -8,6 +8,21 @@ ICS.
 
 Wydarzenia dodawane są pod koniec dnia, żeby nie przeszkadzać, gdy w kalendarzu mamy też sensowne wydarzenia :)
 
+## Wymagania
+
+W miarę nowy Node.js
+
+## Sposób użycia
+
+Najprościej (nie wymaga stałej instalacji czy aktualizacji):
+
+`npx kalendarz-swiat-nietypowych-ics-google-exporter`
+
+Generowanie kalendarza na inny rok:
+
+`npx kalendarz-swiat-nietypowych-ics-google-exporter 2025`
+
+
 ## Znane problemy
 
 - Bałagan w kodzie parsującym
@@ -27,14 +42,6 @@ duplikowało z ew. "wbudowanymi" świętami w określonych kalendarzach
 - Po co to, skoro Nonsensopedia udostępnia to samo? https://goo.gl/z7iSyH
 
 To nie jest to samo - zdaje się, że brakuje tam świąt, dodatkowo do wpisów są pododawane jakieś bzdury.
-
-- Jak to odpalić?
-
-1. Zainstalować relatywnie nowe Node.js (testowane na 11.2)
-2. Przejść do folderu z kodem źródłowym
-3. `yarn`
-4. `yarn createCalendar` dla bieżącego roku, `yarn createCalendar 2019` dla roku 2019, itd.
-4. `yarn start` - żeby developować zmiany dla bieżącego roku, `yarn start 2019` żeby developować dla roku 2019, itd.
 
 ## Licencja
 
