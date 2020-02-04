@@ -18,7 +18,6 @@ Wydarzenia dodawane są pod koniec dnia, żeby nie przeszkadzać, gdy w kalendar
 
 - Naprawić znane problemy
 - Opcja wyeksportowania wszystkich świąt z danego dnia w jednym wpisie?
-- Obsługa CLI?
 - Wyeliminować wszystkie "typowe" święta, takie jak "Boże Narodzenie", które nijak jest nietypowe i będzie się
 duplikowało z ew. "wbudowanymi" świętami w określonych kalendarzach
 - Ogarnąć @todo

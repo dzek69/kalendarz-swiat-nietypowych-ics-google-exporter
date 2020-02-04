@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const fs = require("fs-extra");
 const { join } = require("path");
 
-const URL = "http://nonsensopedia.wikia.com/wiki/" + encodeURIComponent("Kalendarz_świąt_nietypowych");
+const URL = "https://nonsa.pl/wiki/" + encodeURIComponent("Kalendarz_świąt_nietypowych");
 const FILE = "wiki.html";
 const CACHE_DIR = ".cache";
 
