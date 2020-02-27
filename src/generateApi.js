@@ -1,7 +1,6 @@
 const fs = require('fs-extra');
 const download = require('./wikiDownloader');
 const parse = require('./wikiParser');
-const createIcs = require('./icsCreator');
 
 const parseYear = (y) => {
   if (!y) {
