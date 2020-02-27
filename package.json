@@ -1,6 +1,6 @@
 {
   "name": "kalendarz-swiat-nietypowych-ics-google-exporter",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "main": "index.js",
   "repository": "git@github.com:dzek69/kalendarz-swiat-nietypowych-ics-google-exporter.git",
   "license": "MIT",
@@ -16,10 +16,8 @@
     "nodemon": "^1.19.1"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
     "fs-extra": "^8.1.0",
-    "html-entities": "^1.2.1",
     "ics": "^2.16.0",
-    "node-fetch": "^2.6.0"
+    "kalendarz-swiat-nietypowych-parser": "^1.0.1"
   }
 }

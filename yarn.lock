@@ -999,6 +999,16 @@ jsonfile@^4.0.0:
   optionalDependencies:
     graceful-fs "^4.1.6"
 
+kalendarz-swiat-nietypowych-parser@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/kalendarz-swiat-nietypowych-parser/-/kalendarz-swiat-nietypowych-parser-1.0.1.tgz#76e2ae971127cd4aed8f1733d0320be1ab9f9994"
+  integrity sha512-Du4Ldyn9O/zRWpwNj+Afi2lL0sc8q8q5SWwwf8rP7numF82QVeu9BcxbiV2AXuJZO6XcxkXMCMWjXO8cvFTy6Q==
+  dependencies:
+    cheerio "^1.0.0-rc.2"
+    fs-extra "^8.1.0"
+    html-entities "^1.2.1"
+    node-fetch "^2.6.0"
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
